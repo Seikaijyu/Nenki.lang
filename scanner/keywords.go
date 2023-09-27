@@ -43,6 +43,8 @@ var keywords []string = []string{
 	"bool",     // 布尔类型
 }
 
+// 用于查找键是否存在，返回一个布尔值
+// 成功返回true
 func FindKeyWord(find string) bool {
 	for _, value := range keywords {
 		if find == value {

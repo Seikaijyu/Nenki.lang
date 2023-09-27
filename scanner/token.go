@@ -1,6 +1,6 @@
 package scanner
 
 type Token struct {
-	ID    byte
+	ID    TokenType
 	Value any
 }
