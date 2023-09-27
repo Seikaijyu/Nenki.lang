@@ -161,19 +161,17 @@ case
 for
 // 退出循环或者switch
 break
-// 否则
-default
 // 跳过本次循环
 continue
 // 删除字典中的键
 // del varName
 del
 // 用于为任何东西定义别名，会做预处理操作，即使是 define = "hello world" 如此也是可以的，但请小心使用
-// def hello:"hello"
+// define hello:"hello"
 // print(hello) -> print("hello")
-def
+define
 // 用于取消define的定义
-// def hello:"hello"
+// define hello:"hello"
 // undef hello
 undef
 // 枚举
@@ -192,11 +190,11 @@ elif(exp):
     ...
 else:
     ...
-// 默认不需要break，会逐条检测，一旦匹配将停止检查分支，并且默认case或者default有独立作用域
+// 默认不需要break，会逐条检测，一旦匹配将停止检查分支，并且默认case有独立作用域
 switch(val):
     case a:
     case b,c:
-    default:
+    case:
 // while
 for(exp):
     pass
