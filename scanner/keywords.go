@@ -6,7 +6,6 @@ var keywords []string = []string{
 	"const",    // 常量
 	"fn",       // 函数声明
 	"ret",      // 返回值
-	"pass",     // 跳过
 	"link",     // 导入包
 	"class",    // 类
 	"enum",     // 枚举
@@ -21,7 +20,7 @@ var keywords []string = []string{
 	"for",      // 循环
 	"break",    // 退出循环
 	"continue", // 跳过单次循环
-	"del",      // 删除字典
+	"del",      // 删除字典中的键
 	"define",   // 预处理定义
 	"undef",    // 取消预处理定义
 
