@@ -1,16 +1,17 @@
 package scanner
 
-type TokenType byte
-
 const (
-	Str     TokenType = iota // 字符串类型 "str"
-	Bool                     // 布尔类型 true false
-	Null                     // 空类型 nil
-	Byte                     // 字节类型 uint8，表示类似于数字，但最大为255
-	Char                     // 字符类型 'X'
-	Number                   // 数字类型 123 1.23
-	Comment                  // 注释类型 //xx /*xxx*/
+	StrType     TokenType = iota // 字符串类型 "str"
+	BoolType                     // 布尔类型 true false
+	NullType                     // 空类型 nil
+	ByteType                     // 字节类型 uint8，表示类似于数字，但最大为255
+	CharType                     // 字符类型 'X'
+	NumberType                   // 数字类型 123 1.23
+	CommentType                  // 注释类型 //xx /*xxx*/
+	ListType                     // 列表类型 [1,23,44]
+	DictType                     // 字典 {1:2,"a":b}
 
+	Scope        // 作用域（在语言中代表代码之前空格的数量，最大255个使用uint8表示）
 	Dot          // 点运算符 .
 	Exclam       // 逻辑非操作符 !
 	Ampersand    // 位与操作符 &

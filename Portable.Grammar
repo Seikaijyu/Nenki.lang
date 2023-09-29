@@ -6,6 +6,7 @@ var name:number = 123
 // 常量，初始赋值后不可变
 const name:function = fn()->int:
     ret 0
+
 // 函数定义
 fn v():
     pass
@@ -120,8 +121,8 @@ any
 list<type>
 
 // 如果不为其定义类型则默认为any，可以存放任何值，否则仅可以存放某一类型的值
-// 如var k:map<string,string> = {a:"a",b:"b",c:"c"}
-map<type>
+// 如var k:dict<string,string> = {a:"a",b:"b",c:"c"}
+dict<type>
 // 布尔型变量，只有true和false
 bool
 

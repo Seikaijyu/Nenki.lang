@@ -1,8 +1,9 @@
 package main
 
 import (
-	_ "embed"
+	"portable/scanner"
 )
 
 func main() {
+	scanner.NewScan("")
 }

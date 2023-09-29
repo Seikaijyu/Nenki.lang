@@ -39,7 +39,7 @@ var keywords []string = []string{
 	"function", // 函数类型
 	"any",      // 任何类型
 	"list",     // 列表类型
-	"map",      // 字典类型
+	"dict",     // 字典类型
 	"bool",     // 布尔类型
 }
 
