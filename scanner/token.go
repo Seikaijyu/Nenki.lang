@@ -1,6 +1,7 @@
 package scanner
 
-type DataInt uint64
+import "fmt"
+
 type TokenType byte
 
 // 存储Token包含的信息
@@ -8,9 +9,9 @@ type TokenData struct {
 	// Token存在的链接文件名
 	Name string
 	// Token出现的首行
-	Line DataInt
+	Line int
 	// Token出现的首位置
-	Pos DataInt
+	Pos int
 }
 
 // 存储Token
@@ -21,19 +22,6 @@ type Token struct {
 	Data *TokenData
 	// 值
 	Value any
-}
-
-// 创建一个Token类型
-func NewToken(id TokenType, value any, name string, len DataInt, pos DataInt) *Token {
-	return &Token{
-		ID:    id,
-		Value: value,
-		Data: &TokenData{
-			Name: name,
-			Line: len,
-			Pos:  pos,
-		},
-	}
 }
 
 type TokenArray struct {
@@ -87,4 +75,13 @@ func (p *TokenArray) Previous() *Token {
 // 返回从索引引用的下一个Token
 func (p *TokenArray) Next() *Token {
 	return p.nextToken
+}
+
+// 输出所有值
+func (p *TokenArray) Output() {
+	for _, token := range *p.tokens {
+
+		fmt.Printf("ID:%s,Value:%v,Name:%s,Len:%d,Pos:%d\n",
+			tokenTypeMap[token.ID], token.Value, token.Data.Name, token.Data.Line, token.Data.Pos)
+	}
 }

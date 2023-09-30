@@ -59,7 +59,7 @@ fn<T,V> x(v:T,s:V){
 // 错误捕获
 try{
     ...
-}catch e{
+}except e{
     ...
 }
 //错误向上抛出
