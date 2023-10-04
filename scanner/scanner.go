@@ -40,6 +40,14 @@ func (p *Scanner) matchSymbol() bool {
 
 	switch p.code.CurrChar {
 	case '.':
+		if p.code.MatchNextAndSkip('.') {
+			if p.code.MatchNextAndSkip('.') {
+				p.addSymbolToken(TodoOperator)
+				return true
+			} else {
+				p.addSymbolToken(DotOperator)
+			}
+		}
 		p.addSymbolToken(DotOperator)
 	case '!':
 		if p.code.MatchNextAndSkip('=') {

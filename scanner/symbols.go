@@ -17,6 +17,7 @@ const (
 	AndOperator      // and 逻辑与操作符
 	OrOperator       // or 逻辑或操作符
 
+	TodoOperator              // ...省略符号，代表暂时还没写
 	DotOperator               // . 点运算符
 	ExclamOperator            // ! 逻辑非操作符
 	AmpersandOperator         // & 位与操作符
@@ -104,8 +105,9 @@ var tokenTypeMap = map[TokenType]string{
 	NEQ:                       "NEQ",
 	EQ:                        "EQ",
 
-	Semicolon: "Semicolon",
-	Comma:     "Comma",
+	TodoOperator: "TodoOperator",
+	Semicolon:    "Semicolon",
+	Comma:        "Comma",
 
 	LParen:   "LParen",
 	RParen:   "RParen",
