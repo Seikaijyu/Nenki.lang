@@ -46,6 +46,11 @@ func (p *ScanString) Next() bool {
 	if p.index > len(p.cache)-1 {
 		// 缓存上一个扫描好的信息
 		p.cache = append(p.cache, NewScanChar(p.CurrChar, p.Pos, p.Line))
+		// 只保留数组中最新的4条数据以保证不会占用过多内存
+		if len(p.cache) > 4 {
+			// 移动元素，保持数组中最新的 'maxSize' 个元素
+			p.cache = p.cache[len(p.cache)-4:]
+		}
 	} else {
 		p.CurrChar = p.cache[p.index].Ch
 		p.Pos = p.cache[p.index].Pos
@@ -86,6 +91,5 @@ func (p *ScanString) RetToPrevious() {
 
 // 检查是否到底了
 func (p *ScanString) IsEndOfInput() bool {
-
 	return p.index >= len(p.str)
 }

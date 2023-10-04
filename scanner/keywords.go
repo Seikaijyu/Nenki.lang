@@ -23,7 +23,9 @@ var keywords []string = []string{
 	"del",      // 删除字典中的键
 	"define",   // 预处理定义
 	"undef",    // 取消预处理定义
-
+	"in",       // 在什么内
+	"and",      // 和
+	"or",       // 或
 	// 值
 	"true",  // 布尔是
 	"false", // 布尔否

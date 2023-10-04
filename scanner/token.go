@@ -1,13 +1,16 @@
 package scanner
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+	"math/big"
+	"strconv"
+)
 
 type TokenType byte
 
 // 存储Token包含的信息
 type TokenData struct {
-	// Token存在的链接文件名
-	Name string
 	// Token出现的首行
 	Line int
 	// Token出现的首位置
@@ -22,6 +25,40 @@ type Token struct {
 	Data *TokenData
 	// 值
 	Value any
+}
+type Number struct {
+	IsFloat bool
+	Value   any
+}
+
+func NewNumber(float bool, value string) *Number {
+	if float {
+		f, _ := strconv.ParseFloat(value, 64)
+		return &Number{
+			IsFloat: true,
+			Value:   f,
+		}
+	} else {
+
+		bigIntStr := new(big.Int)
+		bigIntStr.SetString(value, 10)
+		bigIntMax := big.NewInt(math.MaxInt64)
+		// 如果字符串值大于了int64的最大值则自动转位float64类型
+		if bigIntStr.Cmp(bigIntMax) > 0 {
+			f, _ := strconv.ParseFloat(value, 64)
+			return &Number{
+				IsFloat: true,
+				Value:   f,
+			}
+		} else {
+			i, _ := strconv.ParseInt(value, 10, 64)
+			return &Number{
+				IsFloat: false,
+				Value:   i,
+			}
+		}
+	}
+
 }
 
 type TokenArray struct {
@@ -81,7 +118,7 @@ func (p *TokenArray) Next() *Token {
 func (p *TokenArray) Output() {
 	for _, token := range *p.tokens {
 
-		fmt.Printf("ID:%s,Value:%v,Name:%s,Len:%d,Pos:%d\n",
-			tokenTypeMap[token.ID], token.Value, token.Data.Name, token.Data.Line, token.Data.Pos)
+		fmt.Printf("ID:%s,Value:%v,Len:%d,Pos:%d\n",
+			tokenTypeMap[token.ID], token.Value, token.Data.Line, token.Data.Pos)
 	}
 }

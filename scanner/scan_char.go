@@ -28,13 +28,24 @@ func (p *Char) IsNumberChar() bool {
 	return *p > 47 && *p < 58
 }
 
-// 检查字符是否为英文字符
-func (p *Char) IsEnglishChar() bool {
-	// 65-90这个区间的ASCII码是A-Z的，97-122这个区间的ASCII码是a-z的
-	return (*p > 64 && *p < 91) || (*p > 96 && *p < 123)
+// 检查字符是否为A-Za-z_$
+func (p *Char) IsIdentifierChar() bool {
+	// 65-90这个区间的ASCII码是A-Z的，97-122这个区间的ASCII码是a-z的，
+	return (*p > 64 && *p < 91) || (*p > 96 && *p < 123) || *p == '_' || *p == '$' || p.IsNumberChar()
 }
 
 // 检查字符是否为空白符
 func (p *Char) IsWhiteSpaceChar() bool {
 	return *p == ' ' || *p == '\n' || *p == '\t'
+}
+
+// 从列表中查找存在的字符
+func (p *Char) FromListFind(chs []rune) bool {
+	pr := rune(*p)
+	for _, v := range chs {
+		if pr == v {
+			return true
+		}
+	}
+	return false
 }

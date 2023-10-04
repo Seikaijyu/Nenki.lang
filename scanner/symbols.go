@@ -10,6 +10,8 @@ const (
 	CommentType                  // 注释类型 //xx /*xxx*/
 	ListType                     // 列表类型 [1,23,44]
 	DictType                     // 字典 {1:2,"a":b}
+	KeyWord                      // 关键字
+	Identifier                   // 标识符
 
 	ContainsOperator // in 运算符，用于判断集合中是否包含元素
 	AndOperator      // and 逻辑与操作符
@@ -66,16 +68,16 @@ const (
 
 // TokenType的映射，用于调试
 var tokenTypeMap = map[TokenType]string{
-	StrType:     "StrType",
-	BoolType:    "BoolType",
-	NullType:    "NullType",
-	ByteType:    "ByteType",
-	CharType:    "CharType",
-	NumberType:  "NumberType",
-	CommentType: "CommentType",
-	ListType:    "ListType",
-	DictType:    "DictType",
-
+	StrType:                   "StrType",
+	BoolType:                  "BoolType",
+	NullType:                  "NullType",
+	ByteType:                  "ByteType",
+	CharType:                  "CharType",
+	NumberType:                "NumberType",
+	CommentType:               "CommentType",
+	ListType:                  "ListType",
+	DictType:                  "DictType",
+	Identifier:                "Identifier",
 	DotOperator:               "DotOperator",
 	ExclamOperator:            "ExclamOperator",
 	AmpersandOperator:         "AmpersandOperator",
@@ -94,13 +96,13 @@ var tokenTypeMap = map[TokenType]string{
 	MinusOperator:             "MinusOperator",
 	MultiplyOperator:          "MultiplyOperator",
 	DivideOperator:            "DivideOperator",
-
-	GT:  "GT",
-	LT:  "LT",
-	GTE: "GTE",
-	LTE: "LTE",
-	NEQ: "NEQ",
-	EQ:  "EQ",
+	KeyWord:                   "KeyWord",
+	GT:                        "GT",
+	LT:                        "LT",
+	GTE:                       "GTE",
+	LTE:                       "LTE",
+	NEQ:                       "NEQ",
+	EQ:                        "EQ",
 
 	Semicolon: "Semicolon",
 	Comma:     "Comma",
