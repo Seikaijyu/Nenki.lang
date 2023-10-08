@@ -6,5 +6,5 @@ import (
 
 func main() {
 	scanner.NewScan(`// 变量定义
-	1999999999999999999+20*10`).Start().Output()
+	1999999999999999999+ 20*10`).Start().Output()
 }
