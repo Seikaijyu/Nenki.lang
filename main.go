@@ -1,11 +1,10 @@
 package main
 
 import (
-	"portable/scanner"
+	"nianhoi/scanner"
 )
 
 func main() {
 	scanner.NewScan(`// 变量定义
-	name.a
-	`).Start().Output()
+	1999999999999999999+20*10`).Start().Output()
 }

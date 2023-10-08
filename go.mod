@@ -1,4 +1,4 @@
-module portable
+module nianhoi
 
 go 1.20
 
