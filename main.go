@@ -1,7 +1,7 @@
 package main
 
 import (
-	"nianhoi/scanner"
+	"nenki/scanner"
 )
 
 func main() {

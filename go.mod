@@ -1,4 +1,4 @@
-module nianhoi
+module nenki
 
 go 1.20
 

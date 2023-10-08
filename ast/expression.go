@@ -1,6 +1,6 @@
 package ast
 
-import "nianhoi/scanner"
+import "nenki/scanner"
 
 // 函数定义，包含具名函数和匿名函数
 type FnExp struct {
